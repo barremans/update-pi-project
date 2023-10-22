@@ -52,11 +52,11 @@ class Main:
             win32api.ShellExecute(
                 0, 'open', 'binaries\\TestBinary.exe', None, None, 10)
         """
-
+        """
         def run_cmd():
             win32api.ShellExecute(0, 'open', 'cmd.exe',
                                   '/k ipconfig', None, 10)
-
+        """
         def update_using_manager():
             try:
                 # Online Version File URL
@@ -90,6 +90,7 @@ class Main:
         file_menu.add_command(label='Exit', command=parent.destroy)
         menu_bar.add_cascade(label='File', menu=file_menu)
         help_menu = tk.Menu(menu_bar, tearoff=0)
+        help_menu.add_command(label='Check for update', command=update_using_manager)
         help_menu.add_command(label='About', command=about_me)
         menu_bar.add_cascade(label='Help', menu=help_menu)
         parent.config(menu=menu_bar)
