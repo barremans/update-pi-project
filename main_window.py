@@ -100,17 +100,17 @@ class Main:
         self._exit = ImageTk.PhotoImage(Image.open('images/exit.png'))
 
         exit_button = ttk.Button(
-            buttons_frame, image=self._exit, command=parent.destroy)
+        buttons_frame, image=self._exit, command=parent.destroy)
         exit_button.pack(side=tk.LEFT, padx=1, pady=1)
         exit_button.image = self._exit
 
         button1 = ttk.Button(
-            parent, text='Check for Updates', command=check_updates)
+        parent, text='Check for Updates', command=check_updates)
         button1.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
 
-        button3 = ttk.Button(parent, text='Run CMD', command=run_cmd)
-        button3.place(x=20, y=100)
+        #button3 = ttk.Button(parent, text='Run CMD', command=run_cmd)
+        #button3.place(x=20, y=100)
 
-        button4 = ttk.Button(parent, text='UpdateManager',
+        button4 = ttk.Button(parent, text='Check + Install',
                              command=update_using_manager)
         button4.place(x=-200, relx=1.0, y=60)
