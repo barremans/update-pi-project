@@ -10,6 +10,8 @@ import threading
 from packaging import version
 import os
 from update_manager import UpdateManager
+from update_using_manager import update_using_manager
+# Import the UpdateManager class
 from about_dialog import DisplayAboutMe
 from version_info import __version__
 from version_info import __AppName__
@@ -57,6 +59,7 @@ class Main:
             win32api.ShellExecute(0, 'open', 'cmd.exe',
                                   '/k ipconfig', None, 10)
         """
+        """
         def update_using_manager():
             try:
                 # Online Version File URL
@@ -84,13 +87,14 @@ class Main:
                 print('The Error is here!')
                 messagebox.showinfo(
                     'Software Update', 'Unable to Check for Update, Error:' + str(e))
-
+        """
         menu_bar = tk.Menu(parent)
         file_menu = tk.Menu(menu_bar, tearoff=0)
         file_menu.add_command(label='Exit', command=parent.destroy)
         menu_bar.add_cascade(label='File', menu=file_menu)
         help_menu = tk.Menu(menu_bar, tearoff=0)
-        help_menu.add_command(label='Check for update', command=update_using_manager)
+        help_menu.add_command(label='Check for update', command=lambda: update_using_manager(parent))
+        #help_menu.add_command(label='Check for update', command=update_using_manager)
         help_menu.add_command(label='About', command=about_me)
         menu_bar.add_cascade(label='Help', menu=help_menu)
         parent.config(menu=menu_bar)
@@ -113,5 +117,5 @@ class Main:
         #button3.place(x=20, y=100)
 
         button4 = ttk.Button(parent, text='Check + Install',
-                             command=update_using_manager)
+                             command=lambda: update_using_manager(parent))
         button4.place(x=-200, relx=1.0, y=60)

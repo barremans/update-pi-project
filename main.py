@@ -3,6 +3,7 @@ import tkinter as tk
 from main_window import Main
 from version_info import __version__
 from version_info import __AppName__
+from update_using_manager import update_using_manager
 
 def set_window_icon(root):
     icon_path = os.path.join(os.path.dirname(__file__), 'images', 'Graphicloads-Android-Settings-Contact.ico')
