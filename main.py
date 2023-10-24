@@ -1,9 +1,9 @@
+# main.py
 import os
 import tkinter as tk
 from main_window import Main
 from version_info import __version__
 from version_info import __AppName__
-from update_using_manager import update_using_manager
 
 def set_window_icon(root):
     icon_path = os.path.join(os.path.dirname(__file__), 'images', 'Graphicloads-Android-Settings-Contact.ico')
@@ -12,17 +12,11 @@ def set_window_icon(root):
 
 def main():
     root = tk.Tk()
-    root.title(__AppName__ + ' ' + str(__version__))
-    w = 650
-    h = 400
-    sw = root.winfo_screenwidth()
-    sh = root.winfo_screenheight()
-    x = (sw - w) / 2
-    y = (sh - h) / 2
-    root.geometry('{0}x{1}+{2}+{3}'.format(w, h, int(x), int(y)))
+    root.title(f"{__AppName__} {__version__}")
+    root.geometry("650x400")
     root.resizable(width=False, height=False)
 
-    set_window_icon(root)  # Call the function to set the window icon dynamically
+    set_window_icon(root)  # Set the window icon
 
     Main(root)
     root.mainloop()
